@@ -38,11 +38,17 @@ func main() {
 }
 
 func handle(w http.ResponseWriter, r *http.Request) {
-	if r.PostFormValue("data") == "" || r.PostFormValue("roomid") == "" {
-		result = &output{500, "data error or roomid error", "",}
+	if r.PostFormValue("data") == "" {
+		result = &output{500, "data empty", "",}
 		response(w, result)
 		return
 	}
+
+	if r.PostFormValue("roomid") == "" {
+		result = &output{500, "roomid empty", "",}
+		response(w, result)
+		return
+	}	
 
 	dataJson := r.PostFormValue("data")
 	roomid := r.PostFormValue("roomid")
