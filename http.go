@@ -29,7 +29,7 @@ func main() {
 	mux.HandleFunc("/message", handle)
 	
 	server := &http.Server{
-		Addr : "0.0.0.0:9500",
+		Addr : "0.0.0.0:9600",
 		Handler : mux,
 		MaxHeaderBytes : 1 << 20,
 	}
